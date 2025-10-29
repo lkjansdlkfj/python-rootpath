@@ -14,8 +14,8 @@ import setupextras
 #       MAIN
 # --------------------------------------
 
-name = 'rootpath'
-version = '0.1.1'
+name = 'python-rootpath'
+version = '0.1.3'
 description = 'Python project/package root path detection.'
 keywords = [
     'python',
@@ -34,7 +34,7 @@ keywords = [
 ]
 
 packages = setupextras.get_packages()
-data_files = setupextras.get_data_files(['*.*'], os.path.join(name, 'tests', '__fixtures__'))
+data_files = setupextras.get_data_files(['*.*'], os.path.join('rootpath', 'tests', '__fixtures__'))
 requirements = setupextras.get_requirements()
 readme = setupextras.get_readme()
 
@@ -71,14 +71,14 @@ config = {
 
     'packages': packages,
     'package_dir': {
-        name: name,
+        'rootpath': 'rootpath',
     },
     'package_data': {
         '': [
             'MIT-LICENSE',
             'README.md',
         ],
-        name: [
+        'rootpath': [
             '*.*',
         ],
     },

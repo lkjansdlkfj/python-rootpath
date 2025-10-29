@@ -36,13 +36,13 @@ clean:
 .PHONY: install
 install:
 	PYTHON_USER_FLAG=$(shell python -c "import sys; print('' if hasattr(sys, 'real_prefix') or hasattr(sys, 'base_prefix') else '--user')") && \
-	pip install $(PYTHON_USER_FLAG) -r requirements.txt
+	pip install $(PYTHON_USER_FLAG) -r requirements-dev.txt
 
 .PHONY: install-ci
 install-ci:
 	PYTHON_USER_FLAG=$(shell python -c "import sys; print('' if hasattr(sys, 'real_prefix') or hasattr(sys, 'base_prefix') else '--user')") && \
 	pip install $(PYTHON_USER_FLAG) -U setuptools setuptools-git setupextras tox tox-travis && \
-	pip install $(PYTHON_USER_FLAG) -r requirements.txt
+	pip install $(PYTHON_USER_FLAG) -r requirements-dev.txt
 
 
 # =========================================
@@ -53,10 +53,10 @@ install-ci:
 build: package-build
 
 .PHONY: release
-release: package-release-dev package-release
+release: package-release
 
 .PHONY: release-dev
-release: package-release-dev
+release-dev: package-release-dev
 
 .PHONY: package-build
 package-build:
@@ -73,7 +73,7 @@ package-release: package-build
 .PHONY: package-release-dev
 package-release-dev: package-build
 	python -m pip install $(PYTHON_USER_FLAG) --upgrade twine && \
-	twine upload --repository pypi-dev dist/*
+	twine upload --repository testpypi dist/*
 
 
 # =========================================
@@ -161,7 +161,7 @@ env-create-python2:
 	pyenv virtualenv -f $(PYTHON_2_VERSION) $(NAME)-python2 && \
 	pyenv activate $(NAME)-python2 && \
 	pip install --upgrade pip && \
-	pip install -U -r requirements.txt && \
+	pip install -U -r requirements-dev.txt && \
 	pyenv versions | grep --color=always $(NAME)-python
 
 .PHONY: env-create-python3
@@ -171,7 +171,7 @@ env-create-python3:
 	pyenv virtualenv -f $(PYTHON_3_VERSION) $(NAME)-python3 && \
 	pyenv activate $(NAME)-python3 && \
 	pip install --upgrade pip && \
-	pip install -U -r requirements.txt && \
+	pip install -U -r requirements-dev.txt && \
 	pyenv versions | grep --color=always $(NAME)-python
 
 .PHONY: env-destroy

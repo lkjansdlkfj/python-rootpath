@@ -234,6 +234,41 @@ root detection, set the `pattern` kwarg to the desired filename.
 rootpath(pattern='Pipfile')
 ```
 
+## Development
+
+### Dependencies
+
+This project separates runtime and development dependencies:
+
+- **Runtime dependencies** (included in deployed package): `requirements.txt`
+- **Development dependencies** (only for development/testing): `requirements-dev.txt`
+
+### Setup Development Environment
+
+Install development dependencies:
+
+```sh
+pip install -r requirements-dev.txt
+```
+
+### Running Tests
+
+Run tests using:
+
+```sh
+make test
+```
+
+Or using tox for multiple Python versions:
+
+```sh
+tox
+```
+
+### Building for Deployment
+
+The deployed package only includes runtime dependencies from `requirements.txt`. Development dependencies like testing tools, coverage, linting, etc. are excluded from the deployed package automatically.
+
 ## About
 
 This project was mainly initiated - in lack of well tested and reliable existing alternatives - to be used at our work at **[Markable.ai](https://markable.ai)** to have common code conventions between various programming environments where **Python** (research, CV, AI) is heavily used.
