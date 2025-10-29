@@ -15,7 +15,7 @@ import setupextras
 # --------------------------------------
 
 name = 'python-rootpath'
-version = '0.1.3'
+version = '0.1.6'
 description = 'Python project/package root path detection.'
 keywords = [
     'python',
@@ -45,11 +45,11 @@ config = {
     'keywords': keywords,
     'author': 'Jonas Grimfelt',
     'author_email': 'grimen@gmail.com',
-    'url': 'https://github.com/grimen/python-{name}'.format(name = name),
-    'download_url': 'https://github.com/grimen/python-{name}'.format(name = name),
+    'url': 'https://github.com/grimen/{name}'.format(name = name),
+    'download_url': 'https://github.com/grimen/{name}'.format(name = name),
     'project_urls': {
-        'repository': 'https://github.com/grimen/python-{name}'.format(name = name),
-        'bugs': 'https://github.com/grimen/python-{name}/issues'.format(name = name),
+        'repository': 'https://github.com/grimen/{name}'.format(name = name),
+        'bugs': 'https://github.com/grimen/{name}/issues'.format(name = name),
     },
     'license': 'MIT',
 
