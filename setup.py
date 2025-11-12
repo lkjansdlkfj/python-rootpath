@@ -15,7 +15,7 @@ import setupextras
 # --------------------------------------
 
 name = 'python-rootpath'
-version = '0.1.6'
+version = '0.1.7'
 description = 'Python project/package root path detection.'
 keywords = [
     'python',
